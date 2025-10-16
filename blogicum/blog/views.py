@@ -44,9 +44,11 @@ posts = [
     },
 ]
 
+
 def index(request):
     context = {'posts': posts}
     return render(request, 'blog/index.html', context)
+
 
 def post_detail(request, id):
     # Ищем пост по id в нашем списке
@@ -55,13 +57,14 @@ def post_detail(request, id):
         if p['id'] == id:
             post = p
             break
-    
+
     # Если пост не найден, возвращаем 404
     if post is None:
         raise Http404("Пост не найден")
-    
+
     context = {'post': post}
     return render(request, 'blog/detail.html', context)
+
 
 def category_posts(request, category_slug):
     context = {'category_slug': category_slug}
