@@ -46,7 +46,9 @@ posts = [
 
 
 def index(request):
-    context = {'posts': posts}
+    # Выводим посты в обратном порядке (новые первыми)
+    reversed_posts = posts[::-1]
+    context = {'posts': reversed_posts}
     return render(request, 'blog/index.html', context)
 
 
