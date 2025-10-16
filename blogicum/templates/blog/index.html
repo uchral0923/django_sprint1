@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Блогикум</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Блогикум</h1>
+        <p>Социальная сеть для публикации личных дневников</p>
+        
+        <div class="posts">
+            {% for post in posts %}
+            <div class="post">
+                <h2><a href="{% url 'blog:post_detail' post.id %}">Пост {{ post.id }}</a></h2>
+                <p><strong>Местоположение:</strong> {{ post.location }}</p>
+                <p><strong>Дата:</strong> {{ post.date }}</p>
+                <p><strong>Категория:</strong> {{ post.category }}</p>
+                <p>{{ post.text|truncatewords:30 }}</p>
+                <hr>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

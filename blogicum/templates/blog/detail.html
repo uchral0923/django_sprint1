@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пост {{ post.id }}</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Пост {{ post.id }}</h1>
+        <p><strong>Местоположение:</strong> {{ post.location }}</p>
+        <p><strong>Дата:</strong> {{ post.date }}</p>
+        <p><strong>Категория:</strong> {{ post.category }}</p>
+        <p>{{ post.text|linebreaks }}</p>
+        <a href="{% url 'blog:index' %}">Назад к списку постов</a>
+    </div>
+</body>
+</html>
